@@ -10,10 +10,11 @@ from pathlib import Path
 import duckdb
 
 # ให้พิมพ์ภาษาไทยได้บน Windows ทุกรุ่น
-sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = ROOT / "northwind.duckdb"
+DB_PATH = ROOT / "scripts" / "northwind.duckdb"
 
 
 def main() -> None:

@@ -4,5 +4,5 @@ northwind_dw:
   outputs:
     dev:
       type: duckdb
-      path: northwind.duckdb
+      path: northwind_dw.duckdb
       threads: 1

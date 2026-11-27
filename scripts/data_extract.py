@@ -1,5 +1,5 @@
 print('Hello world\n')
-print('My nane is: Witchayaporn Phaengbudda')
+print('My name is: Witchayaporn Phaengbudda')
 
 # """
 # E + L ของ ELT: อ่านไฟล์ CSV ของ Northwind จาก 2 ระบบ แล้วโหลดเข้า DuckDB 
