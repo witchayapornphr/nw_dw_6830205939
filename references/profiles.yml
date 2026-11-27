@@ -1,0 +1,8 @@
+# การเชื่อมต่อของ dbt — เก็บไว้ในโฟลเดอร์โปรเจกต์ได้ เพราะ DuckDB ไม่มีรหัสผ่าน
+northwind_dw:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: northwind.duckdb
+      threads: 1

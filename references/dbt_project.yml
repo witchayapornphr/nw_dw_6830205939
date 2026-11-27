@@ -1,0 +1,22 @@
+name: northwind_dw
+version: "1.0.0"
+profile: northwind_dw
+
+# ตำแหน่งของไฟล์แต่ละประเภท (โครงเดียวกับที่คำสั่ง dbt init สร้างให้)
+model-paths: ["models"]         # โมเดล: ไฟล์ .sql ไฟล์ละ 1 ตารางหรือ view
+macro-paths: ["macros"]         # โค้ดที่ใช้ซ้ำ
+seed-paths: ["seeds"]           # ไฟล์ CSV เล็กที่ให้ dbt โหลด (ยังไม่ใช้)
+test-paths: ["tests"]           # SQL ตรวจคุณภาพข้อมูลที่เขียนเอง (ยังไม่ใช้)
+snapshot-paths: ["snapshots"]   # เก็บประวัติการเปลี่ยนแปลงของข้อมูล (ยังไม่ใช้)
+analysis-paths: ["analyses"]    # SQL วิเคราะห์ที่ไม่สร้างเป็นตาราง (ยังไม่ใช้)
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  northwind_dw:
+    staging:
+      +schema: staging          # ชั้นพักข้อมูล: เปลี่ยนชื่อคอลัมน์ แปลงชนิดข้อมูล
+      +materialized: view
+    warehouse:
+      +schema: warehouse        # ชั้นคลังข้อมูล: Star Schema
+      +materialized: table
